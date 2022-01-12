@@ -8,7 +8,9 @@ After gathering molecular dynamics (MD) trajectories of a biophysical simulation
 vmd example_frame.pdb -e <(echo "source lookAtVesicle.tcl")
 ```
 
-![Alt text](vesicle-analysis-visualaid1-bare1.png?raw=true "Vesicle Description")
+<p align="center">
+  <img src="vesicle-analysis-visualaid1-bare1.png" width=70% height=70% >
+</p>
 
 After simulating many consecutive frames of this mixture of lipids, it may be discernable to the human eye that small or medium sized domains now and then transiently form. To have a more concrete definition for these domains, a hidden markov state model (HMM) may be made to differentiate lipids of different domains (hidden states) through observation of key properties (obervable states) over time. The coordinates in the PDB files are sufficient to record a few key observables states, namely the local lipid composition (LCC).
 
