@@ -81,10 +81,8 @@ gnuplot polarPlot1.gnu
 ```
 
 <p align="center">
-  <img src="polarPlot1.png" width=80% height=80% >
-</p>
-
-![Alt text](polarPlot1.png?raw=true "Polar Plot Before")
+  <img src="polarPlot1.png" width=70% height=70% >
+</p
 
 The output from the previous script "getHMMmostProbableStates.out" may be further processed to get a set of hidden states per lipid per frame, rather than a sequence of hidden states per lipid. The number of frames this is printed out for (5 frames in the example below) may be stored in a separate file:
 
@@ -100,9 +98,7 @@ gnuplot polarPlot2.gnu
 ```
 
 <p align="center">
-  <img src="polarPlot2.png" width=80% height=80% >
+  <img src="polarPlot2.png" width=70% height=70% >
 </p>
-
-![Alt text](polarPlot2.png?raw=true "Polar Plot After")
 
 
