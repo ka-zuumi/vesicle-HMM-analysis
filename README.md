@@ -63,6 +63,9 @@ Similar to the Bernoulli probabilities, these distributions can be visualized on
 ./makeDeltaTetrahedronGraph.sh <(grep -v '^#' 4lipid-system-timeaverage.dat) <(grep -v '^#' hmm-model1-distribution.dat) hmm-model1-hiddenstates.png "HMM 2-State Comparison, Outer Membrane"
 ```
 
+![Alt text](vesicle-analysis-visualaid2.1.png?raw=true "Hidden State Comparison")
+
+
 ## Viterbi Most Probable Hidden States
 
 The Viterbi algorithm can then be used again to calculate the most-probable sequence of hidden states of each lipid, using the most-probable model stored in the output. This can be done with the "getHMMmostProbableStates.slurm" script after specifying the output from the previous script as:
