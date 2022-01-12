@@ -93,7 +93,7 @@ gfortran sequenceOfStatesToStatesPerFrame.f90 -o sequenceOfStatesToStatesPerFram
 ./sequenceOfStatesToStatesPerFrame.out 5 1687 < <(sed 1,6d getHMMmostProbableStates.out | sed '$d') > hmm-hiddenstates.txt
 ```
 
-The example frame used in the plot above is the first frame, so the hidden states in "hmm-hiddenstates.txt" and the coordinates and lipid types described in the PDB file "example_frame.pdb" may be combined to form an extended xyz file "example_frame-hiddenstates.xyz". This can then be processed by another pre-made gnuplot file to make a similar map highlighting each lipid's hidden state for that frame:
+The example frame used in the plot above is the first frame, so the hidden states in the first line of "hmm-hiddenstates.txt" and the coordinates and lipid types described in the PDB file "example_frame.pdb" may be combined to form an extended xyz file "example_frame-hiddenstates.xyz". This can then be processed by another pre-made gnuplot file to make a similar map highlighting each lipid's hidden state for that frame:
 
 ```
 gnuplot polarPlot2.gnu
