@@ -49,6 +49,8 @@ In this example, the output found twenty models before termination. These models
 
 ![Alt text](HMMcomparison.png?raw=true "HMM comparison")
 
+<img src="HMMcomparison.png" width=50% height=50%>
+
 The probabilities listed of the most-probable model in this script's output can the be copied to a separate file for further visualization by:
 
 ```
