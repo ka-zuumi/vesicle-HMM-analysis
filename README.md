@@ -45,9 +45,9 @@ As this may take some time (an hour to test a single set of initial conditions),
 ./compareHMModels.sh getHMManalysis.out HMMcomparison.png "4 Lipids - 2 Hidden States"
 ```
 
-In this example, the output found twenty models before termination. These models are probability distributions and can be rudimentarily compared to one another by their root mean square deviation (RMSD). The score, as displayed in the figure below, is the logarithm of the probability that a model produced the sequence of observable states that were initially given. In this way, the highest-scoring model is the most-probable model. Low RMSD between the most-probable models is one indicator of model consensus agreement (and possible convergence to the global maximally-probable model).
-
 <img src="HMMcomparison.png" width=50% height=50% align="right">
+
+In this example, the output found twenty models before termination. These models are probability distributions and can be rudimentarily compared to one another by their root mean square deviation (RMSD). The score, as displayed in the figure below, is the logarithm of the probability that a model produced the sequence of observable states that were initially given. In this way, the highest-scoring model is the most-probable model. Low RMSD between the most-probable models is one indicator of model consensus agreement (and possible convergence to the global maximally-probable model).
 
 The probabilities listed of the most-probable model in this script's output can the be copied to a separate file for further visualization by:
 
