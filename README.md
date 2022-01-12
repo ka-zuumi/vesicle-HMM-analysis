@@ -73,3 +73,30 @@ The Viterbi algorithm can then be used again to calculate the most-probable sequ
 ```
 hmmanalysisfile=getHMManalysis.out
 ```
+
+As the hidden states will be able to distinguish domains on the outer membrane, a more interpretable two-dimensional representation of the membrane is made by projecting the coordinates onto a polar plot using an azimuthal-equidistant map. Using the PDB from earlier and a pre-made gnuplot file, this map can be made: 
+
+```
+
+gnuplot polarPlot1.gnu
+```
+
+![Alt text](polarPlot1.png?raw=true "Polar Plot Before")
+
+The output from the previous script "getHMMmostProbableStates.out" may be further processed to get a set of hidden states per lipid per frame, rather than a sequence of hidden states per lipid. The number of frames this is printed out for (5 frames in the example below) may be stored in a separate file:
+
+```
+gfortran sequenceOfStatesToStatesPerFrame.f90 -o sequenceOfStatesToStatesPerFrame.out
+./sequenceOfStatesToStatesPerFrame.out 5 1687 < <(sed 1,6d getHMMmostProbableStates.out | sed '$d') > hmm-hiddenstates.txt
+```
+
+The example frame used in the plot above is the first frame, so the hidden states in "hmm-hiddenstates.txt" and the coordinates and lipid types described in the PDB file "example_frame.pdb" may be combined to form an extended xyz file "example_frame-hiddenstates.xyz". This can then be processed by another pre-made gnuplot file to make a similar map highlighting each lipid's hidden state for that frame:
+
+```
+
+gnuplot polarPlot2.gnu
+```
+
+![Alt text](polarPlot2.png?raw=true "Polar Plot After")
+
+
