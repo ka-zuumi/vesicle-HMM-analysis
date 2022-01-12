@@ -80,6 +80,10 @@ As the hidden states will be able to distinguish domains on the outer membrane, 
 gnuplot polarPlot1.gnu
 ```
 
+<p align="center">
+  <img src="polarPlot1.png" width=80% height=80% >
+</p>
+
 ![Alt text](polarPlot1.png?raw=true "Polar Plot Before")
 
 The output from the previous script "getHMMmostProbableStates.out" may be further processed to get a set of hidden states per lipid per frame, rather than a sequence of hidden states per lipid. The number of frames this is printed out for (5 frames in the example below) may be stored in a separate file:
@@ -94,6 +98,10 @@ The example frame used in the plot above is the first frame, so the hidden state
 ```
 gnuplot polarPlot2.gnu
 ```
+
+<p align="center">
+  <img src="polarPlot2.png" width=80% height=80% >
+</p>
 
 ![Alt text](polarPlot2.png?raw=true "Polar Plot After")
 
