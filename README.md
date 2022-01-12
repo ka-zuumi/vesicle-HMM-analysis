@@ -12,7 +12,7 @@ vmd example_frame.pdb -e <(echo "source lookAtVesicle.tcl")
   <img src="vesicle-analysis-visualaid1-bare1.png" width=70% height=70% >
 </p>
 
-After simulating many consecutive frames of this mixture of lipids, it may be discernable to the human eye that small or medium sized domains now and then transiently form. To have a more concrete definition for these domains, a hidden markov state model (HMM) may be made to differentiate lipids of different domains (hidden states) through observation of key properties (obervable states) over time. The coordinates in the PDB files are sufficient to record a few key observables states, namely the local lipid composition (LCC).
+After simulating many consecutive frames of this mixture of lipids, it may be discernable to the human eye that small or medium sized domains now and then transiently form. To have a more concrete definition for these domains, a hidden Markov state model (HMM) may be made to differentiate lipids of different domains (hidden states) through observation of key properties (obervable states) over time. The coordinates in the PDB files are sufficient to record a few key observables states, namely the local lipid composition (LCC).
 
 ## Local Lipid Composition
 
@@ -103,4 +103,7 @@ gnuplot polarPlot2.gnu
   <img src="polarPlot2.png" width=70% height=70% >
 </p>
 
+  ## Conclusion
+  
+  It is our hope that this step-by-step guide can help others analyze these difficult-to-visualize spherical domains with the power of hidden Markov state models
 
