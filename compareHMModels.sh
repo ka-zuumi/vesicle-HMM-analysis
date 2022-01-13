@@ -88,6 +88,7 @@ minScore=$(head -1 $tmpfile1)
 
 # Let's visualize the difference matrix
 
+
 module load vis/gnuplot/5.2.6-foss-2018b
 gnuplot <<- EOF
 set terminal pngcairo size 1400,1400
