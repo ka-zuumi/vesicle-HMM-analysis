@@ -67,7 +67,6 @@ Similar to the Bernoulli probabilities, these distributions can be visualized on
 
 ![Alt text](vesicle-analysis-visualaid2.1.png?raw=true "Hidden State Comparison")
 
-
 ## Viterbi Most Probable Hidden States
 
 The Viterbi algorithm can then be used again to calculate the most-probable sequence of hidden states of each lipid, using the most-probable model stored in the output. This can be done with the "getHMMmostProbableStates.slurm" script after specifying the output from the previous script as:
@@ -107,3 +106,5 @@ gnuplot polarPlot2.gnu
   
   It is our hope that this step-by-step guide can help others analyze these difficult-to-visualize spherical domains with the power of hidden Markov state models
 
+[^1]: Sodt, A. J., Sandar, M. L., Gawrisch, K., Pastor, R. W., & Lyman, E. (2014). The molecular structure of the liquid-ordered phase of lipid bilayers. Journal of the American Chemical Society, 136(2), 725-732.
+[^2]: Rabiner, L. R. (1989). A tutorial on hidden Markov models and selected applications in speech recognition. Proceedings of the IEEE, 77(2), 257-286.
