@@ -4,7 +4,7 @@
 
 After gathering molecular dynamics (MD) trajectories of a biophysical simulation of a vesicle, further analysis can be done to distinguish hidden states, such as lipid ordered and disordered states. Consider a simplified vesicle of only the lipid head groups; a sample frame "example_frame.pdb" is given which can be visualized with a pre-made VMD tcl script:
 
-```
+```bash
 vmd example_frame.pdb -e <(echo "source lookAtVesicle.tcl")
 ```
 
