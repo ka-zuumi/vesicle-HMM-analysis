@@ -3,14 +3,14 @@
 #
 # Suggested use:
 # 4-state Bernoulli:
-# ./makeTetrahedronGraph.sh <(gfortran /home/kazuumi/rsun_lts/kazuumi/theoretical-3color-6regular/getBernoulliProbability.f90 -o b.out; seq 0 6 | while read nO; do seq 0 6 | while read nP; do seq 0 6 | while read nN; do let "nC = 6 - ($nO + $nP + $nN)"; if [ "$nC" -ge "0" ]; then P=$(./b.out $nP $nN $nC $nO | awk '{print 100 * $1}'); echo "$nO $nP $nN $nC $P"; fi; done; done; done) bernoulli-triangle.png "Theoretical Probability Distribution\n394 CHOL, 113 POPC, 392 POPE, 294 POPS, Outer Membrane"
+# ./makeTetrahedronGraph.sh <(seq 0 6 | while read nO; do seq 0 6 | while read nP; do seq 0 6 | while read nN; do let "nC = 6 - ($nO + $nP + $nN)"; if [ "$nC" -ge "0" ]; then P=$(./getBernoulliProbability.out $nP $nN $nC $nO | awk '{print 100 * $1}'); echo "$nO $nP $nN $nC $P"; fi; done; done; done) bernoulli-triangle.png "Bernoulli Probability Distribution"
 #
 # HMM predicted Probability Distribution (for two lipid states):
-# ./makeTetrahedronGraph.sh <(grep -v '^#' hmm-model2-4state-distribution.dat | awk '{$5 = 100 * $5; $6 = ""; print $0}') hmm-model2-state1-triangle.png "Hidden State 1 Observable Probability Distribution"
-# ./makeTetrahedronGraph.sh <(grep -v '^#' hmm-model2-4state-distribution.dat | awk '{$5 = 100 * $6; $6 = ""; print $0}') hmm-model2-state2-triangle.png "Hidden State 2 Observable Probability Distribution"
+# ./makeTetrahedronGraph.sh <(grep -v '^#' hmm-model1-distribution.dat | awk '{print $1, $2, $3, $4, 100*$5}') hmm-model1-distribution-state1.png "Hidden State 1 Probability Distribution"
+# ./makeTetrahedronGraph.sh <(grep -v '^#' hmm-model1-distribution.dat | awk '{print $1, $2, $3, $4, 100*$6}') hmm-model1-distribution-state2.png "Hidden State 2 Probability Distribution"
 #
 # Simulated Time-Average Probability Distribution
-# ./makeTetrahedronGraph.sh <(grep -v '^#' 4lipid-system-timeaverage.dat | awk '{print $1, $2, $3, $4, 100*$5}') tmpP.png "Average Observable Probability Distribution"
+# ./makeTetrahedronGraph.sh <(grep -v '^#' 4lipid-system-timeaverage.dat | awk '{print $1, $2, $3, $4, 100*$5}') time-average-distribution.png "Time Average Probability Distribution"
 #
 
 tmpfile="tmp"
@@ -45,7 +45,6 @@ minP=0.0
 # Let's visualize some properties about the
 # local lipid composition
 
-module load vis/gnuplot/5.2.6-foss-2018b
 gnuplot <<- EOF
 set terminal pngcairo size 2400,1600 background rgb 'gray'
 set output '$imagename'
@@ -253,8 +252,6 @@ set arrow 21 from screen 0.35, 0.05 to screen 0.90,0.80 nohead linestyle 3
 plot "<awk '{if (\$1 == 5) {print (\$2+2*\$4)/(2*(\$2+\$3+\$4)), sqrt(3)*\$2/(2*(\$2+\$3+\$4)), \$5, 1+12*(\$5)/$maxP}}' $tmpfile" u 1:2:4:3 w p pt 7 ps variable lt palette
 
 #######################################################################################################################
-
-
 
 
 unset multiplot
