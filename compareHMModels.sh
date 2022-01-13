@@ -2,12 +2,11 @@
 
 #
 # Example usage:
-# ./compareHMModels.sh 4lipid-system-5and1-analysis2.out HMMcomparison.png "Simulated Vesicle - 10000 Frames - 4 Lipid - 2 Hidden States"
+# ./compareHMModels.sh getHMManalysis.out HMMcomparison.png "4 Lipids - 2 Hidden States"
 #
 
 tmpfile1=tmp1
 tmpfile2=tmp2
-
 
 ############################################################################
 #
@@ -33,6 +32,8 @@ else
 fi
 
 imagename=$2
+
+############################################################################
 
 # Process the HMM output file to get each model as a line on the tmpfile
 
@@ -64,6 +65,7 @@ let "Nobservables = ($Nparameters - 6) / 2"
 ############################################################################
 
 # Spit out the highest scoring model for later
+
 line=$(tail -1 $tmpfile2 | awk '{$1=""; print $0}')
 pi_i=$(echo "$line" | awk "{print \$1, \$2}")
 aij=$(echo "$line" | awk "{print \$3, \$4, \$5, \$6}")
@@ -74,6 +76,10 @@ echo "$aij" | xargs -n2
 echo "$bik" | xargs -n$Nobservables
 
 ############################################################################
+
+# Now that we have each model, let's compare them by
+# making a distance matrix of their pairwise
+# differences
 
 gfortran makeDistanceMatrix.f90 -o makeDistanceMatrix.out
 ./makeDistanceMatrix.out $Nparameters $Nmodels < $tmpfile1 > $tmpfile2
@@ -88,8 +94,6 @@ minScore=$(head -1 $tmpfile1)
 
 # Let's visualize the difference matrix
 
-
-module load vis/gnuplot/5.2.6-foss-2018b
 gnuplot <<- EOF
 set terminal pngcairo size 1400,1400
 set output '$imagename'
