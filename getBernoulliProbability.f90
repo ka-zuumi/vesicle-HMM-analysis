@@ -7,6 +7,8 @@ program getBernoulliProbability
 implicit none
 
 integer,parameter :: Nstates = 4 !3
+
+! The probabilities must be specified here
 double precision,dimension(Nstates) :: &
        Pstates = (/ 0.24978759558d0, 0.0841121495d0, 0.33305012744d0, 0.24978759558d0 /)
 ! 392 CHL1, 99 POPC, 392 POPE, 294 POPS
@@ -23,10 +25,12 @@ integer :: factorial
 character(100) :: aline
 integer :: i, j, k
 
+! Check the arguments; these must be the number
+! of lipids to calculate the probability for
 if (iargc() /= Nstates) then
-  write(6,FMT="(A,I2)") "Error. Wrong number "//&
+  write(0,FMT="(A,I2)") "Error. Wrong number "//&
           "of arguments; need exactly:", Nstates
-  write(6,FMT="(A,I2)") "  --each is the number "//&
+  write(0,FMT="(A,I2)") "  --each is the number "//&
           "of lipids of type 1,2,...,",Nstates
   stop
 end if
@@ -36,6 +40,9 @@ do i = 1, Nstates
   read(aline,FMT=*) occupancies(i)
 end do
 
+! Use the Bernoulli multi-nomial formula which
+! assumes lipids are picked independently
+! from one another
 probability = 1.0d0
 do i = 1, Nstates
   j = occupancies(i)
@@ -46,18 +53,20 @@ end do
 probability = probability * &
     factorial(sum(occupancies(1:Nstates)))
 
+! Write this to the standard output
 write(6,FMT=*) probability
 
 return
 end program getBernoulliProbability
 
+! Let's not do any fancy recursive stuff
 integer function factorial(n)
 implicit none
 integer,intent(in) :: n
 integer :: i
 
 if (n < 0) then
-  write(6,FMT="(A)") "Error. Negative occupancy "//&
+  write(0,FMT="(A)") "Error. Negative occupancy "//&
           "for Bernoulli probability calculation"
   stop
 
