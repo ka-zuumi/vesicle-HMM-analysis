@@ -2,7 +2,7 @@
 
 #
 # Example Usage:
-# ./makeDeltaTetrahedronGraph.sh <(grep -v '^#' firstthreethousand-average/4lipid-system-timeaverage.dat) <(grep -v '^#' hmm-model1-4state-distribution.dat) hmm-model1-hiddenstates.png "1000 Sequences, 10000 Observations, HMM 2-State Comparison\n1193 Lipids, 4 Lipid Types, Outer Membrane"
+# ./makeDeltaTetrahedronGraph.sh <(grep -v '^#' 4lipid-system-timeaverage.dat) <(grep -v '^#' hmm-model1-distribution.dat) hmm-model1-hiddenstates.png "HMM 2-State Comparison, Outer Membrane"
 #
 
 tmpfile1="tmp1"
@@ -31,6 +31,8 @@ fi
 imagename=$3
 awk '{diff=sqrt((($5)-($6))**2); print $0, diff}' $2 > $tmpfile1
 
+############################################################################
+
 # Get the maximum probability to have a sense of how to scale
 # the point sizes
 minP=$(awk 'BEGIN {min=1} {diff=($5)-($6); if (diff < min) min = diff} END {print 100*min}' $tmpfile1)
@@ -43,7 +45,6 @@ paste -d' ' <(awk '{$7=""; print $0}' $tmpfile1) <(awk '{$1=""; $2=""; $3=""; $4
 # Let's visualize some properties about the
 # local lipid composition
 
-module load vis/gnuplot/5.2.6-foss-2018b
 gnuplot <<- EOF
 set terminal pngcairo size 2400,1600
 set output '$imagename'
@@ -286,8 +287,6 @@ set label 4 '(6,0,0,0) Pure "O" (CHOL)' font ",24" at screen 0.85, 0.80 center o
 plot "<awk '{if (\$1 == 5) {print (\$2+2*\$4)/(2*(\$2+\$3+\$4)), sqrt(3)*\$2/(2*(\$2+\$3+\$4)), 100*((\$5)-(\$6)), 1+12*(\$7)/$maxABSP}}' $tmpfile1" u 1:2:4:3 w p pt 7 ps variable lt palette
 
 #######################################################################################################################
-
-
 
 
 unset multiplot

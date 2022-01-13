@@ -15,7 +15,7 @@ integer :: iostate
 
 !
 ! Example usage:
-! line=$(head -1 4lipid-system-analysis/seventotenthousand/tmpsequences); gfortran ViterbiMostProbableSequence_KF.f95; ./a.out 2 84 $(echo "$line" | awk '{print NF}') < <(tac 4lipid-system-analysis/hmm-10000length-training1/4lipid-system-analysis_tenthousandlength.out | sed '/best model/q' | tac | sed 1,3d | awk '{if (NR==1) {print $1; print $2} else {print $0}}' | sed 3,3d | sed 5,5d; echo "$line" | xargs -n1) | xargs
+!       (see script)
 !
 
 if (iargc() /= 3) then

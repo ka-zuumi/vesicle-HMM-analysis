@@ -20,7 +20,7 @@ integer :: j1
 
 !
 ! Example usage:
-! gfortran sequenceOfStatesToStatesPerFrame.f90; ./a.out 9999 1687 < <(sed 1,6d 4lipid-system-mostprobable.out) 
+! gfortran sequenceOfStatesToStatesPerFrame.f90 -o sequenceOfStatesToStatesPerFrame.out; ./sequenceOfStatesToStatesPerFrame.out 5 1687 < <(sed 1,6d getHMMmostProbableStates.out | sed '$d') > hmm-hiddenstates.txt
 !
 
 if (iargc() /= 2) then

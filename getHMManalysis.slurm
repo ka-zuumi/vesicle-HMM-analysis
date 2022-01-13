@@ -2,7 +2,7 @@
 
 #
 # Example use of this script:
-# ./getHMManalysis.sh
+# ./getHMManalysis.sh > getHMManalysis.out
 #
 
 tmpfile1=tmp1
@@ -32,7 +32,7 @@ Nobservable=84
 
 ##############################################################################
 
-gfortran HMMsolverMultipleSequences_KF.f95 -o HMMsolverMultipleSequences_KF.o
+# Do some pre-processing
 
 cat $hmminputfile > $tmpfile1
 
@@ -53,6 +53,10 @@ date
 echo "   Nlipids: $Nlipids"
 echo "    Nlines: $Nlines"
 echo "Nsequences: $n_sequence"
+
+##############################################################################
+
+gfortran HMMsolverMultipleSequences_KF.f95 -o HMMsolverMultipleSequences_KF.o
 
 # Process these and get the HMM model
 ./HMMsolverMultipleSequences_KF.o $Nhidden $Nobservable $n_sequence < <(awk '{print NF; for (i=1;i<=NF;i++) {print $i}}' $tmpfile2)
