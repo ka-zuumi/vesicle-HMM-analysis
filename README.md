@@ -12,7 +12,7 @@ vmd example_frame.pdb -e <(echo "source lookAtVesicle.tcl")
   <img src="vesicle-analysis-visualaid1-bare1.png" width=70% height=70% >
 </p>
 
-After simulating many consecutive frames of this mixture of lipids, it may be discernable to the human eye that small or medium sized domains now and then transiently form. To have a more concrete definition for these domains, a hidden Markov state model (HMM) may be made to differentiate lipids of different domains (hidden states) through observation of key properties (obervable states) over time. The coordinates in the PDB files are sufficient to record a few key observables states, namely the local lipid composition (LLC).
+After simulating many consecutive frames of this mixture of lipids, it may be discernable to the human eye that small or medium sized domains now and then transiently form. To have a more concrete definition for these domains, a hidden Markov state model (HMM) may be made to differentiate lipids of different domains (hidden states) through observation of key properties (obervable states) over time[^1]. The coordinates in the PDB files are sufficient to record a few key observables states, namely the local lipid composition (LLC).
 
 ## Local Lipid Composition
 
@@ -35,7 +35,7 @@ python BLAHBLAH example_frame.pdb > hmm-observables.txt
 
 ## Hidden Markov State Model
 
-The full list of observables states of each lipid for all frames (here, not given due to the large size), can then be fed into a HMM. While any number of hidden states may be specified, by specifying two, less variables will be needed to optimize over while still differentiating between the two most distinct hidden states. This can be done with the "getHMManalysis.slurm" script after specifying the inputfile as:
+The full list of observables states of each lipid for all frames (here, not given due to the large size), can then be fed into a HMM[^2]. While any number of hidden states may be specified, by specifying two, less variables will be needed to optimize over while still differentiating between the two most distinct hidden states. This can be done with the "getHMManalysis.slurm" script after specifying the inputfile as:
 
 ```
 hmminputfile=hmm-observables.txt
