@@ -11,13 +11,14 @@ Where to start?
 
 - Prepare the simulation as either a .pdb file or .gro/.trr file
 
--   :ref:`DataPreparation`
+-   :doc:`DataPreparation`
 
--   :ref:`Installation`
+-   :doc:`Installation`
 
 Contents
 --------
 
 .. toctree::
 
-   usage
+   DataPreparation
+   Installation
