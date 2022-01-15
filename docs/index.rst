@@ -14,11 +14,3 @@ Where to start?
 -   :doc:`DataPreparation`
 
 -   :doc:`Installation`
-
-Contents
---------
-
-.. toctree::
-
-   DataPreparation
-   Installation
