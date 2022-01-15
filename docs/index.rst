@@ -4,7 +4,7 @@ HMM Vesicle Analysis
 What biophysical simulations can be analyzed?
 ---------------------------------------------
 
-This set of codes are primarily for simulations of vesicles (sphere-likelipid membranes)
+This set of codes are primarily for simulations of vesicles (sphere-like lipid membranes)
 
 Where to start?
 ---------------
