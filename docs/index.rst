@@ -11,7 +11,7 @@ Where to start?
 
 - Prepare the simulation as either a .pdb file or .gro/.trr file
 
--   :ref:`DataPreparation`
+-   [Data Preparation](DataPreparation)
 
--   :ref:`Installation`
+-   [Installation](Installation)
 
