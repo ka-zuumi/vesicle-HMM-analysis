@@ -15,3 +15,9 @@ Where to start?
 
 -   :ref:`Installation`
 
+Contents
+--------
+
+.. toctree::
+
+   usage
