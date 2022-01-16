@@ -9,11 +9,17 @@ This set of codes are primarily for simulations of vesicles (sphere-like lipid m
 Where to start?
 ---------------
 
-- Prepare the simulation as either a .pdb file or .gro/.trr file
+Prepare the simulation as either a .pdb file or .gro/.trr file
 
-  :doc:`DataPreparation`
-  :doc:`Installation`
+- :doc:`DataPreparation`
 
+Download the code and required software
+
+- :doc:`Installation`
+
+Analyze the simulation
+
+- :doc:`Visualization`
 
 Contents
 --------
@@ -22,3 +28,4 @@ Contents
 
    DataPreparation
    Installation
+   Visualization
