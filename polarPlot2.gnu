@@ -1,5 +1,7 @@
 set term pngcairo size 1800,1200 background rgb 'gray'
 set output "polarPlot2.png"
+
+if (!exists("file")) file="example_frame-hiddenstates.xyz"
 set multiplot layout 1,2
 set polar
 set zeroaxis
@@ -29,12 +31,12 @@ piby2=0.5*pi
 piby4=0.5*piby2
 f(x)=piby4
 
-plot f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", "example_frame-hiddenstates.xyz" u (theta($2,$3,$4)):(($5)>0?R($2,$3,$4)+piby2:1/0):(-($5)) w p lc palette ps 2.0 pt 7,\
-     f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", "example_frame-hiddenstates.xyz" u (theta($2,$3,$4)):(($5)>0?R($2,$3,$4)+piby2:1/0):1 w p lc palette ps 1 pt 7
+plot f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", file u (theta($2,$3,$4)):(($5)>0?R($2,$3,$4)+piby2:1/0):(-($5)) w p lc palette ps 2.0 pt 7,\
+     f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", file u (theta($2,$3,$4)):(($5)>0?R($2,$3,$4)+piby2:1/0):1 w p lc palette ps 1 pt 7
 
 set rtics ('0' pi, 'π/4' 3*pi/4, 'π/2' pi/2, '3π/4' pi/4, 'π' 0)
 set rtics offset 1,0
-plot f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", "example_frame-hiddenstates.xyz" u (theta($2,$3,$4)):(($5)>0?piby2-R($2,$3,$4):1/0):(-($5)) w p lc palette ps 2.0 pt 7,\
-     f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", "example_frame-hiddenstates.xyz" u (theta($2,$3,$4)):(($5)>0?piby2-R($2,$3,$4):1/0):1 w p lc palette ps 1 pt 7
+plot f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", file u (theta($2,$3,$4)):(($5)>0?piby2-R($2,$3,$4):1/0):(-($5)) w p lc palette ps 2.0 pt 7,\
+     f(t) lw 1 lc rgb "black", 2*f(t) lw 2 lc rgb "black", 3*f(t) lw 1 lc rgb "black", 4*f(t) lw 2 lc rgb "black", file u (theta($2,$3,$4)):(($5)>0?piby2-R($2,$3,$4):1/0):1 w p lc palette ps 1 pt 7
 
 unset multiplot
