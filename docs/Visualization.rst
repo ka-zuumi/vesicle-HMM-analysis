@@ -31,7 +31,7 @@ gnuplot Scripting
 
 Projecting the vesicle onto a map as a 2D image with gnuplot is good for creating easy-to-share graphics. Doing this for many consecutive frames allows for creation of 2D animations.
 
-.. image:: ../vesicle-analysis-visualaid1-bare1.png
+.. image:: ../polarPlot1.png
    :width: 500 px
    :align: center
 
