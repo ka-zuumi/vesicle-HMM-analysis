@@ -3,7 +3,7 @@ Data Preparation
 
 .. warning::
 
-  Atomistic simulations often require timestep one the order of femtoseconds so a microsecond of simulation for even a fairly small patch of lipids can be quite large. Carefully estimate space requirements before proceeding and do no create temporary files for intermediate steps if they take too much space.
+  Atomistic simulations often require timesteps on the order of femtoseconds so a microsecond of simulation for even a fairly small patch of lipids can be quite large. Carefully estimate space requirements before proceeding and do no create temporary files for intermediate steps if they take too much space.
 
 Identify the leaflet(s) of interest, particularly for lipid bilayers. The outer and inner leaflets are treated separately in the analysis so care must be taken to differentiate the two. A lipid, often cholesterol, may flip between inner and outer leaflets. Other molecules of interest (e.g. a surfactant) may spend long periods of time on neither leaflets: either within the hydrophobic tail region or in the bulk solvent.
 
