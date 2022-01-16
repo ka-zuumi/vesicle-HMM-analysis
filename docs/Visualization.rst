@@ -14,11 +14,17 @@ Opening the trajectory in VMD is good for detailed investigation of the vesicle'
 .. image:: ../vesicle-analysis-visualaid1-bare1.png
    :width: 500 px
    :align: center
-   
+
+Settings to control how points (e.g. phospholipid heads) are rendered can be store in a tcl script such as ``lookAtVesicle.tcl`` and reused later. For a frame, ``example_frame.pdb``, for instance, VMD can open the file, load the settings, and display using this command:
+
+.. code-block::
+
+  vmd example_frame.pdb -e <(echo "source lookAtVesicle.tcl")
+
 .. seealso::
 
-   `GNU tar manual, Basic Tar Format <https://www.ks.uiuc.edu/Training/Tutorials/vmd/tutorial-html/>`_
-      Tutorial for VMD and tcl scripting
+   `Using VMD <https://www.ks.uiuc.edu/Training/Tutorials/vmd/tutorial-html/>`_
+      A tutorial for VMD and tcl scripting
 
 gnuplot Scripting
 -----------------
