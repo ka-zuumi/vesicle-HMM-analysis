@@ -32,7 +32,7 @@ gnuplot Scripting
 Projecting the vesicle onto a map as a 2D image with gnuplot is good for creating easy-to-share graphics. Doing this for many consecutive frames allows for creation of 2D animations.
 
 .. image:: ../polarPlot1.png
-   :width: 500 px
+   :width: 600 px
    :align: center
 
 The coordinates and lipid types described in the PDB file ``example_frame.pdb`` may be combined with a binary "0" or "1" for whether the lipid is on the leaflet of interest to form an extended xyz file ``example_frame-leaflet.xyz``. This can be visualized to produce the figure above as follows:
@@ -40,3 +40,16 @@ The coordinates and lipid types described in the PDB file ``example_frame.pdb`` 
 .. code-block::
 
   gnuplot -e "file='example_frame-leaflet.xyz'" polarPlot1.gnu
+
+When there is reason to suspect a domain has formed on the vesicle, this can be checked by outlining lipids of a certain state (e.g. ordered vs disordered).
+
+.. image:: ../polarPlot2.png
+   :width: 600 px
+   :align: center
+
+The coordinates and lipid types described in the PDB file ``example_frame.pdb`` may be combined with integer to represent which state it is in (or "0" to not display it at all) to form an extended xyz file ``example_frame-hiddenstates.xyz``. This can be visualized to produce the figure above as follows:
+
+
+.. code-block::
+
+  gnuplot -e "file='example_frame-hiddenstates.xyz'" polarPlot2.gnu
