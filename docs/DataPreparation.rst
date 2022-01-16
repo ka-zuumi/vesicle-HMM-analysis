@@ -7,6 +7,6 @@ Produce input-friendly coordinates. MD simulations often make use of periodic bo
 
 .. code-block::
 
-  python blahblah example.pdb > unwrapped-example.pd
+  python blahblah example.pdb > unwrapped-example.pdb
 
 Condense coordinates into coordinates of interest. Often there is too much information to process and so only select coordinates are follows. For an atomistic simulation of phospholipids, this may mean only printing the coordinates of the phosphorus heads.
