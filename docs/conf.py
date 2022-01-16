@@ -4,7 +4,7 @@
 
 project = 'HMM Vesicle Analysis'
 copyright = '2022, Fujioka'
-author = 'Fujioka'
+author = 'Kazuumi Fujioka'
 
 release = '0.1'
 version = '0.1.0'
