@@ -13,7 +13,12 @@ Opening the trajectory in VMD is good for detailed investigation of the vesicle'
 
 .. image:: ../vesicle-analysis-visualaid1-bare1.png
    :width: 500 px
-   :align: right
+   :align: center
+   
+.. seealso::
+
+   `GNU tar manual, Basic Tar Format <https://www.ks.uiuc.edu/Training/Tutorials/vmd/tutorial-html/>`_
+      Tutorial for VMD and tcl scripting
 
 gnuplot Scripting
 -----------------
