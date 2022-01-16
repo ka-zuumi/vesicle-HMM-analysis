@@ -11,7 +11,7 @@ VMD tcl Scripting
 
 Opening the trajectory in VMD is good for detailed investigation of the vesicle's topography as this renders the vesicle as a 3D interactable scene. Loading an entire trajectory allows for creation of 3D animations.
 
-.. image:: vesicle-analysis-visualaid1-bare1.png
+.. image:: ../vesicle-analysis-visualaid1-bare1.png
    :width: 200 px
    :align: right
 
