@@ -25,7 +25,7 @@ Contents
 --------
 
 .. toctree::
-
+   :hidden:
    DataPreparation
    Installation
    Visualization
