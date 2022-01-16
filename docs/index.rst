@@ -21,9 +21,6 @@ Analyze the simulation
 
 - :doc:`Visualization`
 
-Contents
---------
-
 .. toctree::
    :hidden:
    
