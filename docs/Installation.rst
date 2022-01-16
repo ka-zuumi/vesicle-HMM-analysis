@@ -9,6 +9,6 @@ Obtain this code with the following command:
 
 Software needed for analysis done here are:
 
-  - GNU fortran
-  - Python 3
-  - gnuplot
+- GNU fortran
+- Python 3
+- gnuplot
