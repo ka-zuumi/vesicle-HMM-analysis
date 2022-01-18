@@ -42,7 +42,7 @@ Nlines=$(cat $tmpfile1 | wc -l)
 # Get the sequences of states for each lipid;
 # If the lipid gets 'cut out', then there may
 # be multiple sequences
-awk "BEGIN {for (i=1;i<=$Nlipids;i++) {lengths[i]=0;sequences[i]=\"\"}} {sum=0; for (i=1;i<=NF;i++) {if (\$i > 0) {sum+=1;lengths[i]+=1;sequences[i]=sequences[i]\" \"\$i; if (NR == $Nlines) {print i\":\", sequences[i]}} else {if (lengths[i] > 0) {print i\":\", sequences[i]}; lengths[i]=0}}}" $tmpfile1 > $tmpfile2
+awk "BEGIN {for (i=1;i<=$Nlipids;i++) {lengths[i]=0;sequences[i]=\"\"}} {sum=0; for (i=1;i<=NF;i++) {if (\$i > 0) {sum+=1;lengths[i]+=1;sequences[i]=sequences[i]\" \"\$i; if (NR == $Nlines) {print i\":\", sequences[i]}} else {if (lengths[i] > 0) {print i\":\", sequences[i]; sequences[i]=\"\"}; lengths[i]=0}}}" $tmpfile1 > $tmpfile2
 
 # Get rid of any sequences that are too short
 awk "{if (NF > $n_measure_min) {\$1=\"\"; print \$0}}" $tmpfile2 > $tmpfile1
