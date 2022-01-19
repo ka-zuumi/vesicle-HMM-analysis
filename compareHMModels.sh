@@ -77,12 +77,15 @@ echo "$bik" | xargs -n$Nobservables
 
 ############################################################################
 
-# Now that we have each model, let's compare them by
-# making a distance matrix of their pairwise
-# differences
+# Make a distance matrix without considering permutations
+#gfortran makeDistanceMatrix.f90 -o makeDistanceMatrix.out
+#./makeDistanceMatrix.out $Nparameters $Nmodels < $tmpfile1 > $tmpfile2
 
-gfortran makeDistanceMatrix.f90 -o makeDistanceMatrix.out
-./makeDistanceMatrix.out $Nparameters $Nmodels < $tmpfile1 > $tmpfile2
+# Make a distance matrix which considers permutations
+awk "{\$1=\"\"; \$2=\"\"; \$3=\"\"; \$4=\"\"; \$5=\"\"; \$6=\"\"; print \$0}" $tmpfile1 > $tmpfile2
+mv $tmpfile2 $tmpfile1
+gfortran makeDistanceMatrixWithPermutations.f90 -o makeDistanceMatrixWithPermutations.out
+./makeDistanceMatrixWithPermutations.out $Nobservables 2 $Nmodels < $tmpfile1 > $tmpfile2
 
 maxP=$(awk 'BEGIN {maxP=0.0} {for (i=1;i<=NF;i++) {if ($i > maxP) {maxP=$i}}} END {print maxP}' $tmpfile2)
 
