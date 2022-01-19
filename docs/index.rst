@@ -6,16 +6,22 @@ What biophysical simulations can be analyzed?
 
 This set of codes are primarily for simulations of vesicles (sphere-like lipid membranes).
 
-Where to start?
----------------
+Installation
+------------
+
+Download the code and required software, with instructions here: :doc:`Installation`
+
+.. toctree::
+   :hidden:
+   
+   Installation
+
+How does this work?
+-------------------
 
 Prepare the simulation as either a .pdb file or .gro/.trr file
 
 - :doc:`DataPreparation`
-
-Download the code and required software
-
-- :doc:`Installation`
 
 Analyze the simulation
 
@@ -25,5 +31,4 @@ Analyze the simulation
    :hidden:
    
    DataPreparation
-   Installation
    Visualization
